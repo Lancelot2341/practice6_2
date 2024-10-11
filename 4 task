@@ -1,0 +1,28 @@
+function isJanuary1stSunday(year) {
+  const date = new Date(year, 0, 1); // Create a Date object for January 1st of the given year
+  return date.getDay() === 0; // Check if the day of the week is Sunday (0)
+}
+
+function findSundayYears(startYear, endYear) {
+  const sundayYears = [];
+  let count = 0;
+
+  for (let year = startYear; year <= endYear; year++) {
+    if (isJanuary1stSunday(year)) {
+      sundayYears.push(year);
+      count++;
+    }
+  }
+
+  return { count, years: sundayYears };
+}
+
+// Find the years between 2014 and 2050 when January 1st falls on a Sunday
+const result = findSundayYears(2014, 2050);
+
+// Print the result
+console.log(`${result.count} times`);
+
+for (const year of result.years) {
+  console.log("1st January is being a Sunday", year);
+}
