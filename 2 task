@@ -1,9 +1,39 @@
-// Function to find the largest of three integers
-function max_of_three(a, b, c) {
-    return Math.max(a, b, c);
+function displayCurrentDateTime() {
+  // Get the current date and time
+  const now = new Date();
+
+  // Determine the day of the week
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayOfWeek = daysOfWeek[now.getDay()];
+
+  // Format the current hour, minute, and second in 12-hour format with AM/PM notation
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  let second = now.getSeconds();
+  let ampm = "AM";
+
+  if (hour >= 12) {
+    ampm = "PM";
+    if (hour > 12) {
+      hour -= 12;
+    }
+  }
+
+  // Handle special cases for "Noon" and "Midnight"
+  if (hour === 0 && minute === 0 && second === 0) {
+    hour = 12;
+    ampm = "AM";
+  } else if (hour === 12 && minute === 0 && second === 0) {
+    ampm = "PM";
+  }
+
+  // Format the time string
+  const timeString = `${hour}:${minute.toString().padStart(2, "0")}:${second.toString().padStart(2, "0")} ${ampm}`;
+
+  // Display the current day and time
+  console.log("Today is:", dayOfWeek);
+  console.log("Current time is:", timeString);
 }
 
-// Sample usage
-console.log(max_of_three(1, 0, 1));       // Output: 1
-console.log(max_of_three(0, -10, -20));   // Output: 0
-console.log(max_of_three(1000, 510, 440)); // Output: 1000
+// Call the function to display the current date and time
+displayCurrentDateTime();
