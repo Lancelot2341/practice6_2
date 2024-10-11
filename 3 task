@@ -1,0 +1,14 @@
+function isLeapYear(year) {
+  // A leap year is divisible by 4, but not by 100, unless it's also divisible by 400
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+// Get the input year from the user
+const inputYear = prompt("Enter a year:");
+
+// Check if the input year is a leap year
+if (isLeapYear(inputYear)) {
+  console.log("a leap year");
+} else {
+  console.log("is not a leap year");
+}
