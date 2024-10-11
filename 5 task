@@ -1,0 +1,17 @@
+function removeCharAt(str, index) {
+  // Check if the index is valid
+  if (index < 0 || index >= str.length) {
+    return str; // Return the original string if the index is out of bounds
+  }
+
+  // Create a new string by concatenating the substrings before and after the specified index
+  return str.substring(0, index) + str.substring(index + 1);
+}
+
+// Get the input string and index from the user
+const inputString = prompt("Enter a string:");
+const index = parseInt(prompt("Enter the index of the character to remove:"));
+
+// Remove the character at the specified index and display the result
+const modifiedString = removeCharAt(inputString, index);
+console.log("Modified string:", modifiedString);
